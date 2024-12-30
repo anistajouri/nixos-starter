@@ -31,14 +31,16 @@
     vim
     wget
     zip
-    google-cloud-sdk
     kind
     kubectl
     yq-go
     go
-    crossplane-cli
     gum
-    helm
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    upbound
+    teller
+    crossplane-cli
+    kubernetes-helm
   ];
 
   stable-packages = with pkgs; [
@@ -149,8 +151,8 @@ in {
         side-by-side = true;
         navigate = true;
       };
-      userEmail = ""; # FIXME: set your git email
-      userName = ""; #FIXME: set your git username
+      userEmail = "anis.tajouri@gmail.com"; # FIXME: set your git email
+      userName = "Anis Tajouri"; #FIXME: set your git username
       extraConfig = {
         # FIXME: uncomment the next lines if you want to be able to clone private https repos
         # url = {
@@ -178,8 +180,9 @@ in {
     fish = {
       enable = true;
       # FIXME: run 'scoop install win32yank' on Windows, then add this line with your Windows username to the bottom of interactiveShellInit
-      # fish_add_path --append /mnt/c/Users/<Your Windows Username>/scoop/apps/win32yank/0.1.1
       interactiveShellInit = ''
+
+        fish_add_path --append "/mnt/c/win32yank-x86"
         ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
         ${pkgs.lib.strings.fileContents (pkgs.fetchFromGitHub {

@@ -24,17 +24,10 @@ Make sure to look at all the `FIXME` notices in the various files which are
 intended to direct you to places where you may want to make configuration
 tweaks.
 
-If you found this starter template useful, please consider
-[sponsoring](https://github.com/sponsors/LGUG2Z) and [subscribing to my YouTube
-channel](https://www.youtube.com/channel/UCeai3-do-9O4MNy9_xjO6mg?sub_confirmation=1).
-
-## What Is Included
-
 This starter is a lightly-opinionated take on a productive terminal-driven
 development environment based on my own preferences. However, it is trivial to
 customize to your liking both by removing and adding tools that you prefer.
 
-- The default editor is [JeezyVim](https://github.com/LGUG2Z/JeezyVim)
 - `win32yank` is used to ensure perfect bi-directional copying and pasting to
   and from Windows GUI applications and LunarVim running in WSL
 - The default shell is `fish`
