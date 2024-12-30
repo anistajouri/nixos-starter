@@ -31,6 +31,14 @@
     vim
     wget
     zip
+    google-cloud-sdk
+    kind
+    kubectl
+    yq-go
+    go
+    crossplane-cli
+    gum
+    helm
   ];
 
   stable-packages = with pkgs; [
@@ -226,13 +234,14 @@ in {
       shellAliases = {
         jvim = "nvim";
         lvim = "nvim";
+        ec = "nvim ~/configuration/home.nix";
         pbcopy = "/mnt/c/Windows/System32/clip.exe";
         pbpaste = "/mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe -command 'Get-Clipboard'";
         explorer = "/mnt/c/Windows/explorer.exe";
         
         # To use code as the command, uncomment the line below. Be sure to replace [my-user] with your username. 
         # If your code binary is located elsewhere, adjust the path as needed.
-        # code = "/mnt/c/Users/[my-user]/AppData/Local/Programs/'Microsoft VS Code'/bin/code";
+        code = "/mnt/c/Users/a.tajouri/AppData/Local/Programs/'Microsoft VS Code'/bin/code";
       };
       plugins = [
         {
