@@ -194,6 +194,19 @@ in {
           + "/extras/kanagawa.fish")}
 
         set -U fish_greeting
+
+        # SDKMAN initialization
+        set -gx SDKMAN_DIR $HOME/.sdkman
+
+        if test -d $SDKMAN_DIR
+          # Initialize SDKMAN wrapper functions
+          function sdk
+            bash -c "source $SDKMAN_DIR/bin/sdkman-init.sh && sdk $argv"
+          end
+        else
+          # Install SDKMAN if not present
+          curl -s "https://get.sdkman.io" | bash
+        end
       '';
       functions = {
         refresh = "source $HOME/.config/fish/config.fish";
