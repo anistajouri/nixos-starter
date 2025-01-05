@@ -8,7 +8,9 @@
   ...
 }: {
   # FIXME: change to your tz! look it up with "timedatectl list-timezones"
-  time.timeZone = "America/Los_Angeles";
+  # time.timeZone = "Europe/Paris";
+  time.timeZone = "Africa/Tunis";
+  
 
   networking.hostName = "${hostname}";
 

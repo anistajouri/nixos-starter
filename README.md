@@ -1,7 +1,7 @@
 # nixos-wsl-starter
 
 This repository is intended to be a sane, batteries-included starter template
-for running a [JeezyVim](https://github.com/LGUG2Z/JeezyVim)-powered NixOS
+for running a [LVim](https://github.com/anistajouri/LVim)-powered NixOS
 development environment on WSL.
 
 If you don't want to dig into NixOS too much right now, the only file you need
@@ -68,8 +68,11 @@ install win32yank` or compiling it from source, and then adding it to your `$PAT
 [![Watch the walkthrough video](https://img.youtube.com/vi/ZuVQds2hncs/hqdefault.jpg)](https://www.youtube.com/watch?v=ZuVQds2hncs)
 
 - Get the [latest
-  release](https://github.com/LGUG2Z/nixos-wsl-starter/releases)
+  release](https://github.com/anistajouri/nixos-wsl-starter/releases)
 - Install it (tweak the command to your desired paths):
+
+
+- wget https://github.com/nix-community/NixOS-WSL/releases/download/22.05-5c211b47/nixos-wsl-x86_64-linux.tar.gz
 
 ```powershell
 wsl --import NixOS .\NixOS\ .\nixos-wsl.tar.gz --version 2
@@ -84,7 +87,7 @@ wsl -d NixOS
 - Get a copy of this repo (you'll probably want to fork it eventually):
 
 ```bash
-git clone https://github.com/LGUG2Z/nixos-wsl-starter.git /tmp/configuration
+git clone https://github.com/anistajouri/nixos-wsl-starter.git /tmp/configuration
 cd /tmp/configuration
 ```
 

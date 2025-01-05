@@ -1,21 +1,28 @@
 {
   description = "NixOS configuration";
 
+  # https://github.com/nixos/nixpkgs#nixpkgs : nixos-24.11 (last stable release)
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
   inputs.nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
+  # Home Manager 
+  # tool that manages user configuration files (home.nix)
+  # GitHub Repository: https://github.com/nix-community/home-manager
+  # Specific Branch: https://github.com/nix-community/home-manager/tree/release-24.11
   inputs.home-manager.url = "github:nix-community/home-manager/release-24.11";
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+  # Other interesting Nixos packages:  https://nur.nix-community.org/
   inputs.nur.url = "github:nix-community/NUR";
 
+  # https://github.com/nix-community/NixOS-WSL : WSL support for NixOS
   inputs.nixos-wsl.url = "github:nix-community/NixOS-WSL";
   inputs.nixos-wsl.inputs.nixpkgs.follows = "nixpkgs";
 
   inputs.nix-index-database.url = "github:Mic92/nix-index-database";
   inputs.nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
 
-  inputs.jeezyvim.url = "github:LGUG2Z/JeezyVim";
+  inputs.lvim.url = "github:anistajouri/LVim";
 
   outputs = inputs:
     with inputs; let
@@ -27,13 +34,12 @@
         config = {
           allowUnfree = true;
           permittedInsecurePackages = [
-            # FIXME:: add any insecure packages you absolutely need here
           ];
         };
 
         overlays = [
           nur.overlays.default
-          jeezyvim.overlays.default
+          lvim.overlays.default
 
           (_final: prev: {
             unstable = import nixpkgs-unstable {

@@ -8,78 +8,80 @@
 }: let
   unstable-packages = with pkgs.unstable; [
     # FIXME: select your core binaries that you always want on the bleeding-edge
-    bat
-    bottom
-    coreutils
-    curl
-    du-dust
-    fd
-    findutils
-    fx
-    git
-    git-crypt
-    htop
-    jq
-    killall
-    mosh
-    procs
-    ripgrep
-    sd
-    tmux
-    tree
-    unzip
-    vim
-    wget
-    zip
-    kind
-    kubectl
-    yq-go
-    go
-    gum
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
-    upbound
-    teller
-    crossplane-cli
-    kubernetes-helm
+
+    bat             # A modern replacement for cat, with syntax highlighting and Git integration.
+    bottom          # A graphical process viewer for the terminal.
+    coreutils       # Basic file, shell, and text manipulation utilities.
+    curl            # A command-line tool for transferring data with URLs.
+    du-dust         # A more user-friendly version of du for disk usage analysis.
+    fd              # A simple, fast, and user-friendly alternative to find.
+    findutils       # A collection of utilities for finding files in a directory hierarchy.
+    fx              # A command-line JSON processor.
+    git             # A version control system for tracking changes in source code.
+    git-crypt       # A tool for transparent encryption of files in a Git repository.
+    htop            # An interactive process viewer for Unix systems.
+    jq              # A lightweight and flexible command-line JSON processor.
+    killall         # A command to kill processes by name.
+    mosh            # A mobile shell that allows roaming and supports intermittent connectivity.
+    procs           # A modern replacement for ps, showing process information.
+    ripgrep         # A command-line search tool that recursively searches your current directory for a regex pattern.
+    sd              # A simple and fast replacement for sed.
+    tmux            # A terminal multiplexer that allows multiple terminal sessions to be accessed simultaneously.
+    tree            # A recursive directory listing command that produces a depth-indented listing of files.
+    unzip           # A utility for unpacking zip files.
+    vim             # A highly configurable text editor.
+    wget            # A command-line utility for downloading files from the web.
+    zip             # A utility for packaging and compressing files.
+
+
+    kind            # A tool for running Kubernetes clusters in Docker.
+    kubectl         # The command-line tool for interacting with Kubernetes clusters.
+    yq-go           # A command-line YAML processor.
+    go              # The Go programming language.
+    gum             # A tool for creating interactive command-line applications.
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin]) # A set of tools for managing resources on Google Cloud Platform, with additional components for GKE authentication.
+    upbound         # A tool for managing Kubernetes resources.
+    teller          # A tool for managing secrets in cloud environments.
+    crossplane-cli  # A command-line interface for Crossplane, a tool for managing cloud resources.
+    kubernetes-helm # A package manager for Kubernetes applications.
   ];
 
   stable-packages = with pkgs; [
     # FIXME: customize these stable packages to your liking for the languages that you use
 
-    # FIXME: you can add plugins, change keymaps etc using (jeezyvim.nixvimExtend {})
-    # https://github.com/LGUG2Z/JeezyVim#extending
-    jeezyvim
+    # TODO: you can add plugins, change keymaps etc using (lvim.nixvimExtend {})
+    lvim             # LunarVim, an IDE layer for Neovim.
 
     # key tools
-    gh # for bootstrapping
-    just
+    gh               # GitHub CLI for managing GitHub repositories.
+    just             # A handy way to save and run project-specific commands.
 
     # core languages
-    rustup
+    rustup           # The Rust toolchain installer.
 
     # rust stuff
-    cargo-cache
-    cargo-expand
+    cargo-cache      # A cargo subcommand for managing the cargo cache.
+    cargo-expand     # A cargo subcommand to show the result of macro expansion.
 
-    # local dev stuf
-    mkcert
-    httpie
+    # local dev stuff
+    mkcert           # A simple zero-config tool to make locally trusted development certificates.
+    httpie           # A user-friendly HTTP client.
 
     # treesitter
-    tree-sitter
+    tree-sitter      # An incremental parsing system for programming tools.
 
     # language servers
-    nodePackages.vscode-langservers-extracted # html, css, json, eslint
-    nodePackages.yaml-language-server
-    nil # nix
+    nodePackages.vscode-langservers-extracted # Language servers for HTML, CSS, JSON, and ESLint.
+    nodePackages.yaml-language-server         # Language server for YAML.
+    nil                                       # Language server for Nix.
 
     # formatters and linters
-    alejandra # nix
-    deadnix # nix
-    nodePackages.prettier
-    shellcheck
-    shfmt
-    statix # nix
+    alejandra        # A formatter for Nix code.
+    deadnix          # A linter for detecting dead code in Nix expressions.
+    nodePackages.prettier                      # An opinionated code formatter.
+    shellcheck       # A linter for shell scripts.
+    shfmt            # A shell script formatter.
+    statix           # A linter for Nix code.
   ];
 in {
   imports = [
@@ -176,10 +178,11 @@ in {
       };
     };
 
-    # FIXME: This is my fish config - you can fiddle with it if you want
+    # Fish config - you can fiddle with it if you want
     fish = {
       enable = true;
-      # FIXME: run 'scoop install win32yank' on Windows, then add this line with your Windows username to the bottom of interactiveShellInit
+      # FIXME: install win32yank' on Windows from https://github.com/equalsraf/win32yank/releases in C:\win32yank-x86, 
+      # FIXME: Add this line with your Windows username to the bottom of interactiveShellInit
       interactiveShellInit = ''
 
         fish_add_path --append "/mnt/c/win32yank-x86"

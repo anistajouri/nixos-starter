@@ -3,7 +3,7 @@
     "devshell": {
       "inputs": {
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -73,7 +73,7 @@
     "flake-parts_2": {
       "inputs": {
         "nixpkgs-lib": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -152,18 +152,18 @@
     "git-hooks": {
       "inputs": {
         "flake-compat": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "flake-compat"
         ],
         "gitignore": "gitignore",
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ],
         "nixpkgs-stable": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -185,7 +185,7 @@
     "gitignore": {
       "inputs": {
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "git-hooks",
           "nixpkgs"
@@ -229,7 +229,7 @@
     "home-manager_2": {
       "inputs": {
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -251,13 +251,13 @@
     "ixx": {
       "inputs": {
         "flake-utils": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nuschtosSearch",
           "flake-utils"
         ],
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nuschtosSearch",
           "nixpkgs"
@@ -278,7 +278,7 @@
         "type": "github"
       }
     },
-    "jeezyvim": {
+    "lvim": {
       "inputs": {
         "flake-parts": "flake-parts",
         "nixpkgs": "nixpkgs",
@@ -287,21 +287,21 @@
       "locked": {
         "lastModified": 1735081422,
         "narHash": "sha256-kT/7M9OqpoyjC449fjfbY35gKFVP2A7kFNHPC/8ht+E=",
-        "owner": "LGUG2Z",
-        "repo": "JeezyVim",
+        "owner": "anistajouri",
+        "repo": "LVim",
         "rev": "aa4be0585ee78b9ec6f8a77ba3f644a1c4cdf1f3",
         "type": "github"
       },
       "original": {
-        "owner": "LGUG2Z",
-        "repo": "JeezyVim",
+        "owner": "anistajouri",
+        "repo": "LVim",
         "type": "github"
       }
     },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -505,7 +505,7 @@
         "flake-utils": "flake-utils",
         "ixx": "ixx",
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
@@ -527,7 +527,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "jeezyvim": "jeezyvim",
+        "lvim": "lvim",
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_3",
@@ -568,7 +568,7 @@
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": [
-          "jeezyvim",
+          "lvim",
           "nixvim",
           "nixpkgs"
         ]
