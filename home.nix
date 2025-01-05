@@ -50,7 +50,7 @@
     # FIXME: customize these stable packages to your liking for the languages that you use
 
     # TODO: you can add plugins, change keymaps etc using (lvim.nixvimExtend {})
-    lvim             # LunarVim, an IDE layer for Neovim.
+    lvim             # LVim under   inputs.lvim.url = "github:anistajouri/LVim";, an IDE layer for Neovim.
 
     # key tools
     gh               # GitHub CLI for managing GitHub repositories.
