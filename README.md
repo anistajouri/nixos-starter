@@ -46,22 +46,7 @@ customize to your liking both by removing and adding tools that you prefer.
   enable private HTTPS clones with secret tokens
 - `fish` config is generated in [home.nix](home.nix) and includes git aliases,
   useful WSL aliases
-
-### win32yank
-
-There have been some recent changes in WSL2 that make running `win32yank`
-within WSL2 very slow. You should install this on Windows by running `scoop
-install win32yank` or compiling it from source, and then adding it to your `$PATH`:
-
-```nix
-{
-    programs.fish = {
-      interactiveShellInit = ''
-        fish_add_path --append /mnt/c/Users/<Your Windows Username>/scoop/apps/win32yank/0.1.1
-      '';
-    };
-}
-```
+- [`SDKMAN`](https://sdkman.io/) is integrated for managing multiple Software Development Kits
 
 ## Quickstart
 
@@ -70,9 +55,6 @@ install win32yank` or compiling it from source, and then adding it to your `$PAT
 - Get the [latest
   release](https://github.com/anistajouri/nixos-wsl-starter/releases)
 - Install it (tweak the command to your desired paths):
-
-
-- wget https://github.com/nix-community/NixOS-WSL/releases/download/22.05-5c211b47/nixos-wsl-x86_64-linux.tar.gz
 
 ```powershell
 wsl --import NixOS .\NixOS\ .\nixos-wsl.tar.gz --version 2
@@ -84,16 +66,23 @@ wsl --import NixOS .\NixOS\ .\nixos-wsl.tar.gz --version 2
 wsl -d NixOS
 ```
 
+- Make it as default:
+
+```powershell
+wsl -s NixOS
+```
+
 - Get a copy of this repo (you'll probably want to fork it eventually):
 
 ```bash
-git clone https://github.com/anistajouri/nixos-wsl-starter.git /tmp/configuration
+git clone https://github.com/anistajouri/nixos-starter.git /tmp/configuration
 cd /tmp/configuration
 ```
 
 - Change the username to your desired username in `flake.nix` with `nvim` (or
   whichever editor you prefer)
-- Install `win32yank` with `scoop` and add it to your `$PATH` in NixOS
+- Install `win32yank` from https://github.com/equalsraf/win32yank/releases in C:\win32yank-x86 
+- Add it to your `$PATH` in NixOS
 - Apply the configuration and shutdown the WSL2 VM
 
 ```bash
@@ -121,13 +110,15 @@ mv /tmp/configuration ~/configuration
 sudo nixos-rebuild switch --flake ~/configuration
 ```
 
-Note: If developing in Rust, you'll still be managing your toolchains and
-components like `rust-analyzer` with `rustup`!
-
 ## Project Layout
 
 In order to keep the template as approachable as possible for new NixOS users,
 this project uses a flat layout without any nesting or modularization.
+
+.
+├── flake.nix          # Dependencies and system configuration
+├── wsl.nix            # WSL-specific system settings
+└── home.nix           # User environment configuration
 
 - `flake.nix` is where dependencies are specified
   - `nixpkgs` is the current release of NixOS
