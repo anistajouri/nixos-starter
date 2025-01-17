@@ -13,7 +13,7 @@
   inputs.home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
   # Other interesting Nixos packages:  https://nur.nix-community.org/
-  inputs.nur.url = "github:nix-community/NUR";
+#  inputs.nur.url = "github:nix-community/NUR";
 
   # https://github.com/nix-community/NixOS-WSL : WSL support for NixOS
   inputs.nixos-wsl.url = "github:nix-community/NixOS-WSL";
